@@ -638,11 +638,11 @@ class Session(nodes.FSCollector):
         node_cache1: Dict[py.path.local, Sequence[nodes.Collector]] = {}
         node_cache2: Dict[
             Tuple[Type[nodes.Collector], py.path.local], nodes.Collector
-        ] = ({})
+        ] = {}
 
         # Keep track of any collected collectors in matchnodes paths, so they
         # are not collected more than once.
-        matchnodes_cache: Dict[Tuple[Type[nodes.Collector], str], CollectReport] = ({})
+        matchnodes_cache: Dict[Tuple[Type[nodes.Collector], str], CollectReport] = {}
 
         # Dirnames of pkgs with dunder-init files.
         pkg_roots: Dict[str, Package] = {}
