@@ -1421,7 +1421,8 @@ def test_error_attribute_issue555(testdir):
 
 
 @pytest.mark.skipif(
-    not sys.platform.startswith("win"), reason="only on windows",
+    not sys.platform.startswith("win"),
+    reason="only on windows",
 )
 def test_py36_windowsconsoleio_workaround_non_standard_streams() -> None:
     """

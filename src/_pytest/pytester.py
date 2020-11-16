@@ -273,13 +273,15 @@ class HookRecorder:
 
     @overload
     def getreports(
-        self, names: "Literal['pytest_collectreport']",
+        self,
+        names: "Literal['pytest_collectreport']",
     ) -> Sequence[CollectReport]:
         ...
 
     @overload
     def getreports(
-        self, names: "Literal['pytest_runtest_logreport']",
+        self,
+        names: "Literal['pytest_runtest_logreport']",
     ) -> Sequence[TestReport]:
         ...
 
@@ -336,13 +338,15 @@ class HookRecorder:
 
     @overload
     def getfailures(
-        self, names: "Literal['pytest_collectreport']",
+        self,
+        names: "Literal['pytest_collectreport']",
     ) -> Sequence[CollectReport]:
         ...
 
     @overload
     def getfailures(
-        self, names: "Literal['pytest_runtest_logreport']",
+        self,
+        names: "Literal['pytest_runtest_logreport']",
     ) -> Sequence[TestReport]:
         ...
 
@@ -628,7 +632,7 @@ class Testdir:
         self.request = request
         self._mod_collections: WeakKeyDictionary[
             Module, List[Union[Item, Collector]]
-        ] = (WeakKeyDictionary())
+        ] = WeakKeyDictionary()
         if request.function:
             name: str = request.function.__name__
         else:
